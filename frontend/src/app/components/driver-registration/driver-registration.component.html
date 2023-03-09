@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Driver Registration Form</h3>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="driverForm" (ngSubmit)="submitDriverForm()">
+              <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" formControlName="id" required>
+                <div *ngIf="driverForm.controls.id.invalid && (driverForm.controls.id.dirty || driverForm.controls.id.touched)" class="text-danger">
+                  <div *ngIf="driverForm.controls.id.errors?.['required']">
+                    ID is required.
+                  </div>
+                  <div *ngIf="driverForm.controls.id.errors?.['pattern']">
+                    ID must be a number.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" class="form-control" id="last_name" formControlName="last_name" required maxlength="50">
+                <div *ngIf="driverForm.controls.last_name.invalid && (driverForm.controls.last_name.dirty || driverForm.controls.last_name.touched)" class="text-danger">
+                  <div *ngIf="driverForm.controls.last_name.errors?.['required']">
+                    Last Name is required.
+                  </div>
+                  <div *ngIf="driverForm.controls.last_name.errors?.['maxlength']">
+                    Last Name must be no more than 50 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" class="form-control" id="first_name" formControlName="first_name" required maxlength="50">
+                <div *ngIf="driverForm.controls.first_name.invalid && (driverForm.controls.first_name.dirty || driverForm.controls.first_name.touched)" class="text-danger">
+                  <div *ngIf="driverForm.controls.first_name.errors?.['required']">
+                    First Name is required.
+                  </div>
+                  <div *ngIf="driverForm.controls.first_name.errors?.['required']">
+                    First Name must be no more than 50 characters long.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" class="form-control" id="dob" formControlName="dob" required>
+                <div *ngIf="driverForm.controls.dob.invalid && (driverForm.controls.dob.dirty || driverForm.controls.dob.touched)" class="text-danger">
+                  <div *ngIf="driverForm.controls.dob.errors?.['required']">
+                    Date of Birth is required.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" id="address" formControlName="address" required maxlength="100">
+                <div *ngIf="driverForm.controls.address.invalid && (driverForm.controls.address.dirty || driverForm.controls.address.touched)" class="text-danger">
+                    <div *ngIf="driverForm.controls.address.errors?.['required']">
+                        Address is required.
+                    </div> 
+                </div> 
+                    </div>
+                        <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" id="city" formControlName="city" required maxlength="50">
+                        <div *ngIf="driverForm.controls.city.invalid && (driverForm.controls.city.dirty || driverForm.controls.city.touched)" class="text-danger">
+                            <div *ngIf="driverForm.controls.city.errors?.['required']">
+                            City is required.
+                            </div>
+                            <div *ngIf="driverForm.controls.city.errors?.['maxlength']">
+                            City must be no more than 50 characters long.
+                            </div>
+                        </div>
+                        </div>
+                    <div class="card-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!driverForm.valid">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
