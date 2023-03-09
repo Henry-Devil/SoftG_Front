@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +12,7 @@ export class SignInComponent implements OnInit {
   password: string = '';
   confirmPassword: string = '';
 
-  constructor(){}
+  constructor(private toastr: ToastrService ){}
 
   ngOnInit(): void {
 
@@ -20,7 +21,8 @@ export class SignInComponent implements OnInit {
   addUser(){
     //Validamos que el usuario ingrese valores
     if(this.username == '' || this.password == '' || this.confirmPassword == ''){
-      alert('Todos los campos son obligatorios')
+      this.toastr.error('Todos los campos son obligatorios', 'Error');
+      return;
     }
   }
 }
