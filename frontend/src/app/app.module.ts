@@ -18,10 +18,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
-import { DriverRegistrationComponent } from './components/driver-registration/driver-registration.component';
-import { VehicleDriverSearchComponent } from './components/vehicle-driver-search/vehicle-driver-search.component';
-import { VehicleRegistrationComponent } from './components/vehicle-registration/vehicle-registration.component';
-import { WorkScheduleComponent } from './components/work-schedule/work-schedule.component';
+
 
 @NgModule({
   declarations: [
@@ -31,11 +28,6 @@ import { WorkScheduleComponent } from './components/work-schedule/work-schedule.
     DashboardComponent,
     NavbarComponent,
     SpinnerComponent,
-    DriverRegistrationComponent,
-    VehicleDriverSearchComponent,
-    VehicleRegistrationComponent,
-    WorkScheduleComponent,
-
   ],
   imports: [
     BrowserModule,
