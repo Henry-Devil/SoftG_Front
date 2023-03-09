@@ -33,7 +33,11 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }), //ToastrModule added
     
   ],
   providers: [

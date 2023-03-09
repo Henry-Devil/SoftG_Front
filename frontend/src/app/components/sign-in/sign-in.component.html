@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <div class="body">
+    <div *ngIf="!loading" class="body">
         <img class="logo" src="../../../assets/img/logosoftgnet1.png" alt="img login">
         <img class="logoo" src="../../../assets/img/avatar.png" alt="img login">
         <h3>Registrar usuario</h3>
@@ -8,11 +8,11 @@
             <label>Usuario</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" {(ngModel)}="password" class="form-control" placeholder="Ingrese password">
+            <input type="password" {(ngModel)}="password" class="form-control" placeholder="Ingrese password">
             <label>Password</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" {(ngModel)}="confirmPassword" class="form-control" placeholder="Ingrese password de nuevo">
+            <input type="password" {(ngModel)}="confirmPassword" class="form-control" placeholder="Ingrese password de nuevo">
             <label>Repetir password</label>
             
         </div> 
@@ -21,4 +21,5 @@
         </div>
         <a routerLink="/login">Volver</a>
     </div>    
+    <app-spinner *ngIf="loading"></app-spinner>
 </div>
