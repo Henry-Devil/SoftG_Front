@@ -3,5 +3,5 @@ export interface Vehicle {
     description: string,
     year: number,
     make: Uint16Array,
-    capacity: Uint16Array,
+    capacity: Uint16Array
 }
