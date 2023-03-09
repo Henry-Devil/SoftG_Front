@@ -32,6 +32,8 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     
   ],
   providers: [
