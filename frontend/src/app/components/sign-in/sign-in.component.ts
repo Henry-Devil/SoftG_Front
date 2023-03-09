@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/user';
+import { ErrorService } from 'src/app/services/error.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class SignInComponent implements OnInit {
 
   constructor(private toastr: ToastrService,
      private _userService: UserService,
-     private router: Router
+     private router: Router,
+     private _errorService: ErrorService
     ){}
 
   ngOnInit(): void {
@@ -46,17 +48,17 @@ export class SignInComponent implements OnInit {
     }
 
     this.loading = true;
-
-    this._userService.signIn(user).subscribe(data => {
-      this.loading = false;
-      this.toastr.success(`El usuario ${this.username} fue registrado con exito', 'Usuario registrado`);
-      this.router.navigate(['/login'])
-    }), (event: HttpErrorResponse) => {
-      console.log(event.error.msg);
-      this.toastr.error(event.error.msg, 'Error')
-      this.loading = false;
-      
-    }
-
+    this._userService.signIn(user).subscribe({
+      next: (v) => {
+        this.loading = false;
+        this.toastr.success(`El usuario ${this.username} fue registrado con exito`, 'Usuario registrado');
+        this.router.navigate(['/login']);
+      },
+      error: (e: HttpErrorResponse) => {
+        this.loading = false;
+        this._errorService.msjError(e);
+      }
+    })
   }
 }
+
