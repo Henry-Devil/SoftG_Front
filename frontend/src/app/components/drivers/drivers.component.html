@@ -1,0 +1,19 @@
+<h2>Conductores</h2>
+
+<ul class="drivers">
+  <li *ngFor="let driver of drivers">
+    <span>{{driver.last_name}}</span>
+    <button class="delete" (click)="deleteDriver(driver)">Eliminar</button>
+  </li>
+</ul>
+
+<div>
+  <h3>Agregar conductor</h3>
+  <label>
+    Nombre:
+    <input #name />
+  </label>
+  <button (click)="addDriver(name.value); name.value=''">
+    Agregar
+  </button>
+</div>
