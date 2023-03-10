@@ -1,1 +1,50 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+    <h1>Welcome to your dashboard!</h1>
+    
+    <p>This is your centralized hub for managing your transportation business. Below you will find quick links to each CRUD section, as well as a summary of the data in each section.</p>
+    
+    <nav>
+      <ul>
+        <li><a routerLink="/drivers">Drivers</a></li>
+        <li><a routerLink="/vehicles">Vehicles</a></li>
+        <li><a routerLink="/routes">Routes</a></li>
+        <li><a routerLink="/schedules">Schedules</a></li>
+      </ul>
+    </nav>
+    
+    <div class="summary">
+      <div class="drivers">
+        <h2>Drivers</h2>
+        <p>You have {{ drivers.length }} drivers in your system.</p>
+        <ul>
+          <li *ngFor="let driver of drivers">{{ driver.last_name }}</li>
+        </ul>
+      </div>
+      
+      <div class="vehicles">
+        <h2>Vehicles</h2>
+        <p>You have {{ vehicles.length }} vehicles in your system.</p>
+        <ul>
+          <li *ngFor="let vehicle of vehicles">{{ vehicle.make }} {{ vehicle.year }} ({{ vehicle.capacity}})</li>
+        </ul>
+      </div>
+      
+      <div class="routes">
+        <h2>Routes</h2>
+        <p>You have {{ routes.length }} routes in your system.</p>
+        <ul>
+          <li *ngFor="let route of routes">{{ route.description }} - {{ route.driver_id }} ({{ route.vehicle_id }} )</li>
+        </ul>
+      </div>
+      
+      <div class="schedules">
+        <h2>Schedules</h2>
+        <p>You have {{ schedules.length }} schedules in your system.</p>
+        <ul>
+          <li *ngFor="let schedule of schedules">{{ schedule.route_id }} ({{ schedule.week_num }}, {{ schedule.from }} {{ schedule.to }})</li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
