@@ -3,8 +3,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/user';
-import { ErrorService } from 'src/app/services/error.service';
-import { UserService } from 'src/app/services/user.service';
+import { ErrorService } from 'src/app/components/services/error.service';
+import { UserService } from 'src/app/components/services/user.service';
 
 @Component({
   selector: 'app-login',
