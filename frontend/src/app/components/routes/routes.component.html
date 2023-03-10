@@ -1,0 +1,42 @@
+<h2>Routes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Driver</th>
+      <th>Vehicle</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let route of routes">
+      <td>{{ route.description }}</td>
+      <td>{{ route.driver_id?.last_name }}</td>
+      <td>{{ route.vehicle_id?.description }}</td>
+      <td><button (click)="deleteRoute(route)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Add a Route</h3>
+
+<form (ngSubmit)="addRoute(newRoute)">
+  <div>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required[(ngModel)]="newRoute.description">
+  </div>
+  <div>
+    <label for="driver_id">Driver:</label>
+    <select id="driver_id" name="driver_id" required[(ngModel)]="newRoute.driver_id">
+      <option *ngFor="let driver of drivers" [value]="driver.id">{{ driver.last_name }}</option>
+    </select>
+  </div>
+  <div>
+    <label for="vehicle_id">Vehicle:</label>
+    <select id="vehicle_id" name="vehicle_id" required[(ngModel)]="newRoute.vehicle_id">
+      <option *ngFor="let vehicle of vehicles" [value]="vehicle.id">{{ vehicle.description }}</option>
+    </select>
+  </div>
+  <button type="submit">Add Route</button>
+</form>
