@@ -18,6 +18,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { AddTokenInterceptor } from './utils/add-token.interceptor';
+import { DriversComponent } from './components/drivers/drivers.component';
+import { VehiclesComponent } from './components/vehicles/vehicles.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { AddTokenInterceptor } from './utils/add-token.interceptor';
     DashboardComponent,
     NavbarComponent,
     SpinnerComponent,
+    DriversComponent,
+    VehiclesComponent,
   ],
   imports: [
     BrowserModule,
