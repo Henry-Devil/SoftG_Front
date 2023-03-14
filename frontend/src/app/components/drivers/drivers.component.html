@@ -1,19 +1,28 @@
-<h2>Conductores</h2>
+<!-- drivers.component.html -->
 
-<ul class="drivers">
+<h1>Conductores</h1>
+
+<!-- Formulario para agregar un nuevo conductor -->
+<form (ngSubmit)="addDriver(first_name.value); first_name.value=''">
+  <label for="first_name">Nombre:</label>
+  <input type="text" id="first_name" #first_name required>
+  <label for="last_name">Apellido:</label>
+  <input type="text" id="last_name" #last_name required>
+  <label for="dob">Fecha de Nacimiento:</label>
+  <input type="dob" id="birthdate" #dob required>
+  <label for="address">Dirección:</label>
+  <input type="text" id="address" #address required>
+  <label for="phone">Teléfono:</label>
+  <input type="text" id="phone" #phone required>
+  <label for="city">Ciudad:</label>
+  <input type="text" id="city" #city required>
+  <button type="submit">Agregar</button>
+</form>
+
+<!-- Lista de conductores -->
+<ul>
   <li *ngFor="let driver of drivers">
-    <span>{{driver.last_name}}</span>
-    <button class="delete" (click)="deleteDriver(driver)">Eliminar</button>
+    {{ driver.first_name }} {{ driver.last_name }}, nacido el {{ driver.dob }}, vive en {{ driver.address }}, teléfono {{ driver.phone }}, de {{ driver.city }}
+    <button (click)="deleteDriver(driver)">Eliminar</button>
   </li>
 </ul>
-
-<div>
-  <h3>Agregar conductor</h3>
-  <label>
-    Nombre:
-    <input #name />
-  </label>
-  <button (click)="addDriver(name.value); name.value=''">
-    Agregar
-  </button>
-</div>
