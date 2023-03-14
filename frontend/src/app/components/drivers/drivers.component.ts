@@ -24,10 +24,10 @@ export class DriversComponent implements OnInit {
       .subscribe(drivers => this.drivers = drivers);
   }
 
-  addDriver(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.driversService.addDriver({ name } as unknown as Driver)
+  addDriver(first_name: string): void {
+    first_name = first_name.trim();
+    if (!first_name) { return; }
+    this.driversService.addDriver({ first_name } as unknown as Driver)
       .subscribe(driver => {
         this.drivers.push(driver);
       });
