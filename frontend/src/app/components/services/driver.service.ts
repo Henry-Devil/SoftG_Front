@@ -17,25 +17,25 @@ export class DriversService {
   }
 
   getDrivers(): Observable<Driver[]> {
-    return this.http.get<Driver[]>(this.myApiUrl);
+    return this.http.get<Driver[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
 
   getDriver(id: number): Observable<Driver> {
-    const url = `${this.myApiUrl}/${id}`;
+    const url =`${this.myAppUrl}${this.myApiUrl}/${id}`;
     return this.http.get<Driver>(url);
   }
 
   addDriver(driver: Driver): Observable<Driver> {
-    return this.http.post<Driver>(this.myApiUrl, driver);
+    return this.http.post<Driver>(`${this.myAppUrl}${this.myApiUrl}`, driver);
   }
 
   updateDriver(driver: Driver): Observable<any> {
-    const url = `${this.myApiUrl}/${driver.id}`;
+    const url = `${this.myAppUrl}${this.myApiUrl}/${driver.id}`;
     return this.http.put(url, driver);
   }
 
   deleteDriver(id: number): Observable<any> {
-    const url = `${this.myApiUrl}/${id}`;
+    const url = `${this.myAppUrl}${this.myApiUrl}/${id}`;
     return this.http.delete(url);
   }
 }
