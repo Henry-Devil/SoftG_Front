@@ -8,13 +8,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RoutesComponent } from './components/routes/routes.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
+import { AuthGuard } from './utils/auth.guards';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'signIn', component: SignInComponent},
-  {path: 'principal', component: PagePComponent},
+  {path: 'principal', component: PagePComponent, canActivate: [AuthGuard]},
   {path: 'drivers', component: DriversComponent},
   {path: 'routes', component: RoutesComponent},
   {path: 'vehicles', component: VehiclesComponent},

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Driver } from '../interfaces/driver';
+import { Driver } from '../interfaces/drivers';
 
 @Injectable({
   providedIn: 'root'

@@ -49,7 +49,7 @@ export class SignInComponent implements OnInit {
 
     this.loading = true;
     this._userService.signIn(user).subscribe({
-      next: (v) => {
+      next: () => {
         this.loading = false;
         this.toastr.success(`El usuario ${this.username} fue registrado con exito`, 'Usuario registrado');
         this.router.navigate(['/login']);

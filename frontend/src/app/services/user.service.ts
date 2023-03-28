@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { enviroment } from 'src/environments/environments';
+import { environment } from 'src/environments/environments';
 import { User } from '../interfaces/user';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class UserService {
   private myApiUrl: string;
 
   constructor(private http: HttpClient) {
-    this.myAppUrl = enviroment.endpoint;
+    this.myAppUrl = environment.endpoint;
     this.myApiUrl = 'api/users/'
    }
 
